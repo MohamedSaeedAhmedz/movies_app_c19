@@ -83,6 +83,6 @@
   "thriller": "Thriller",
   "war": "War",
   "western": "Western",
-  "noSimilar": "No similar movies"
-  "next": "Next",
+  "noSimilar": "No similar movies",
+  "next": "Next"
 }

@@ -5,6 +5,7 @@ import 'package:movies_app/features/onboarding/presentation/onboarding_Screen.da
 import 'core/bloc/locale/locale_bloc.dart';
 import 'core/localization/app_localizations.dart';
 import 'core/routes/AppRoutes.dart';
+import 'features/Login/presentation/Login_Screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,6 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<LocaleBloc, LocaleState>(
         builder: (context, state) {
           return MaterialApp(
-            // theme: AppTheme.appTheme,
             debugShowCheckedModeBanner: false,
             title: 'Movie App',
             localizationsDelegates: const [
@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
             initialRoute: AppRoutes.onboarding,
             routes: {
               AppRoutes.onboarding: (context) => const OnboardingView(),
+              AppRoutes.login: (context) => const LoginScreen(),
 
             },
           );
