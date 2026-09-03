@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:movies_app/features/onboarding/presentation/onboarding_Screen.dart';
 import 'package:movies_app/features/register/presentation/register_screen.dart';
+import 'package:movies_app/features/update_profile/presentation/update_profile_screen.dart';
 import 'core/bloc/locale/locale_bloc.dart';
 import 'core/localization/app_localizations.dart';
 import 'core/routes/AppRoutes.dart';
@@ -45,6 +46,8 @@ class MyApp extends StatelessWidget {
               AppRoutes.onboarding: (context) => const OnboardingView(),
               AppRoutes.login: (context) => const LoginScreen(),
               AppRoutes.register: (context) => const RegisterScreen(),
+              AppRoutes.updateProfile:(context) => const UpdateProfileScreen(),
+              
 
             },
           );
