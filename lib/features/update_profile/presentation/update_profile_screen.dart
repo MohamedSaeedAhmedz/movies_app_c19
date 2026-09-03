@@ -6,6 +6,7 @@ import 'package:movies_app/core/localization/app_localizations.dart';
 import 'package:movies_app/core/resources/app_color.dart';
 import 'package:movies_app/core/resources/app_icon.dart';
 import 'package:movies_app/core/resources/app_image.dart';
+import 'package:movies_app/core/routes/AppRoutes.dart';
 import 'package:movies_app/features/update_profile/presentation/bottom_sheet_body.dart';
 import 'package:movies_app/utils/app_text_style.dart';
 import 'package:movies_app/widget/custom_button.dart';
@@ -57,7 +58,9 @@ class UpdateProfileScreen extends StatelessWidget {
                       ? Alignment.centerLeft
                       : Alignment.centerRight,
                   child: CustomTextButton(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).pushNamed(AppRoutes.forgetpassword);
+                    },
                     text: l10n.resetPassword,
                     fontSize: 20,
                     color: MColors.white,
