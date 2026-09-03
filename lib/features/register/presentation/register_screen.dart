@@ -14,8 +14,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool isEnglish = true;
   bool isPasswordHidden = true;
   bool isConfirmPasswordHidden = true;
-  final ValueNotifier<Locale> appLocale =
-      ValueNotifier<Locale>(const Locale('en'));
+  final ValueNotifier<Locale> appLocale = ValueNotifier<Locale>(
+    const Locale('en'),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -270,7 +271,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
 
             SizedBox(height: 18),
-            
+
             GestureDetector(
               onTap: () {
                 setState(() {
