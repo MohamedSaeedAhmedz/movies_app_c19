@@ -1,0 +1,264 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Arabic (`ar`).
+class AppLocalizationsAr extends AppLocalizations {
+  AppLocalizationsAr([String locale = 'ar']) : super(locale);
+
+  @override
+  String get onboardingTitle1 => 'ابحث عن فيلمك المفضل التالي هنا';
+
+  @override
+  String get onboardingDesc1 =>
+      'احصل على وصول إلى مكتبة ضخمة من الأفلام تناسب جميع الأذواق. بالتأكيد ستعجبك.';
+
+  @override
+  String get onboardingTitle2 => 'اكتشف الأفلام';
+
+  @override
+  String get onboardingDesc2 =>
+      'استكشف مجموعة واسعة من الأفلام بجميع الجودات والأنواع. اعثر بسهولة على فيلمك المفضل القادم.';
+
+  @override
+  String get onboardingTitle3 => 'استكشف جميع الأنواع';
+
+  @override
+  String get onboardingDesc3 =>
+      'اكتشف أفلامًا من كل نوع وبجميع الجودات المتاحة. اعثر على شيء جديد ومثير لمشاهدته كل يوم.';
+
+  @override
+  String get onboardingTitle4 => 'أنشئ قائمة المشاهدة';
+
+  @override
+  String get onboardingDesc4 =>
+      'احفظ الأفلام في قائمة المشاهدة الخاصة بك لتتذكر ما تريد مشاهدته لاحقًا. استمتع بأفلام متنوعة بجميع الجودات والأنواع.';
+
+  @override
+  String get onboardingTitle5 => 'قيّم وراجع وتعلم';
+
+  @override
+  String get onboardingDesc5 =>
+      'شارك آرائك حول الأفلام التي شاهدتها. اغص في تفاصيل الأفلام وساعد الآخرين على اكتشاف أفلام رائعة من خلال مراجعاتك.';
+
+  @override
+  String get onboardingTitle6 => 'ابدأ المشاهدة الآن';
+
+  @override
+  String get onboardingDesc6 => '';
+
+  @override
+  String get email => 'البريد الإلكتروني';
+
+  @override
+  String get password => 'كلمة المرور';
+
+  @override
+  String get forgetPassword => 'هل نسيت كلمة المرور';
+
+  @override
+  String get login => 'تسجيل الدخول';
+
+  @override
+  String get register => 'تسجيل حساب جديد';
+
+  @override
+  String get dontHaveAccount => 'ليس لديك حساب؟';
+
+  @override
+  String get deleteAccount => 'حذف الحساب';
+
+  @override
+  String get createOne => 'أنشئ حساب';
+
+  @override
+  String get or => 'أو';
+
+  @override
+  String get loginWithGoogle => 'تسجيل الدخول عبر جوجل';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get confirmPassword => 'تأكيد كلمة المرور';
+
+  @override
+  String get phoneNumber => 'رقم الهاتف';
+
+  @override
+  String get createAccount => 'إنشاء حساب';
+
+  @override
+  String get alreadyHaveAccount => 'لديك حساب بالفعل؟';
+
+  @override
+  String get verifyEmail => 'تأكيد البريد الإلكتروني';
+
+  @override
+  String get seeMore => 'عرض المزيد';
+
+  @override
+  String get watch => 'مشاهدة';
+
+  @override
+  String get search => 'بحث';
+
+  @override
+  String get resetPassword => 'إعادة تعيين كلمة المرور';
+
+  @override
+  String get updateData => 'تحديث البيانات';
+
+  @override
+  String get pickAvatar => 'اختر صورة شخصية';
+
+  @override
+  String get avatar => 'صورة شخصية';
+
+  @override
+  String get exit => 'خروج';
+
+  @override
+  String get editProfile => 'تعديل الملف الشخصي';
+
+  @override
+  String get watchList => 'قائمة المشاهدة';
+
+  @override
+  String get history => 'تاريخي';
+
+  @override
+  String get summary => 'الملخص';
+
+  @override
+  String get cast => 'طاقم العمل';
+
+  @override
+  String get character => 'الشخصية';
+
+  @override
+  String get genres => 'الأنواع';
+
+  @override
+  String get exploreNow => 'استكشف الآن';
+
+  @override
+  String get finish => 'إنهاء';
+
+  @override
+  String get areYouSureDelete => 'هل أنت متأكد أنك تريد الحذف؟';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get confirm => 'تأكيد';
+
+  @override
+  String get oldPassword => 'كلمة المرور القديمة';
+
+  @override
+  String get newPassword => 'كلمة المرور الجديدة';
+
+  @override
+  String get screenshots => 'لقطات الشاشة';
+
+  @override
+  String get noScreenshots => 'لا توجد لقطات شاشة متاحة';
+
+  @override
+  String get similar => 'مشابه';
+
+  @override
+  String get noCast => 'لا يوجد طاقم متاح';
+
+  @override
+  String get noGenres => 'لا توجد أنواع متاحة';
+
+  @override
+  String get noMoviesFound => 'لا توجد افلام متاحة';
+
+  @override
+  String get all => 'الكل';
+
+  @override
+  String get action => 'أكشن';
+
+  @override
+  String get adventure => 'مغامرة';
+
+  @override
+  String get animation => 'رسوم متحركة';
+
+  @override
+  String get biography => 'سيرة ذاتية';
+
+  @override
+  String get comedy => 'كوميديا';
+
+  @override
+  String get crime => 'جريمة';
+
+  @override
+  String get documentary => 'وثائقي';
+
+  @override
+  String get drama => 'دراما';
+
+  @override
+  String get family => 'عائلي';
+
+  @override
+  String get fantasy => 'فانتازيا';
+
+  @override
+  String get filmNoir => 'فيلم-نوير';
+
+  @override
+  String get gameShow => 'برنامج ألعاب';
+
+  @override
+  String get horror => 'رعب';
+
+  @override
+  String get music => 'موسيقى';
+
+  @override
+  String get musical => 'ميوزيكال';
+
+  @override
+  String get mystery => 'غموض';
+
+  @override
+  String get news => 'أخبار';
+
+  @override
+  String get realityTV => 'واقعي';
+
+  @override
+  String get romance => 'رومانسي';
+
+  @override
+  String get sciFi => 'خيال علمي';
+
+  @override
+  String get sport => 'رياضة';
+
+  @override
+  String get talkShow => 'برنامج حواري';
+
+  @override
+  String get thriller => 'إثارة';
+
+  @override
+  String get war => 'حرب';
+
+  @override
+  String get western => 'ويسترن';
+
+  @override
+  String get noSimilar => 'لا توجد أفلام مشابهة';
+}
