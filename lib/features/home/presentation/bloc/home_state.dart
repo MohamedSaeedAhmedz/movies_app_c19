@@ -1,13 +1,31 @@
-abstract class HomeState {}
+import '../../data/models/movie_model.dart';
 
-class HomeInitial extends HomeState {
+abstract class HomeState {
   final int currentIndex;
 
-  HomeInitial({this.currentIndex = 0});
+  HomeState({this.currentIndex = 0});
+}
+
+class HomeInitial extends HomeState {
+  HomeInitial({super.currentIndex});
 }
 
 class HomeNavChanged extends HomeState {
-  final int currentIndex;
+  HomeNavChanged(int currentIndex) : super(currentIndex: currentIndex);
+}
 
-  HomeNavChanged(this.currentIndex);
+class HomeMoviesLoading extends HomeState {
+  HomeMoviesLoading({super.currentIndex});
+}
+
+class HomeMoviesSuccess extends HomeState {
+  final List<MovieModel> movies;
+
+  HomeMoviesSuccess(this.movies, {super.currentIndex});
+}
+
+class HomeMoviesError extends HomeState {
+  final String message;
+
+  HomeMoviesError(this.message, {super.currentIndex});
 }
