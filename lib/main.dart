@@ -11,8 +11,12 @@ import 'core/bloc/locale/locale_bloc.dart';
 import 'core/localization/app_localizations.dart';
 import 'core/routes/AppRoutes.dart';
 import 'features/Login/presentation/Login_Screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -50,10 +54,10 @@ class MyApp extends StatelessWidget {
               AppRoutes.onboarding: (context) => const OnboardingView(),
               AppRoutes.login: (context) => const LoginScreen(),
               AppRoutes.register: (context) => const RegisterScreen(),
-              AppRoutes.updateProfile:(context) => const UpdateProfileScreen(),
-              AppRoutes.forgetpassword:(context) => const ForgetPasswordScreen(),
-              AppRoutes.homescreen:(context) => const HomeView(),
-              
+              AppRoutes.updateProfile: (context) => const UpdateProfileScreen(),
+              AppRoutes.forgetpassword: (context) =>
+                  const ForgetPasswordScreen(),
+              AppRoutes.homescreen: (context) => const HomeView(),
             },
           );
         },
