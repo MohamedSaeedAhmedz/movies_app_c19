@@ -52,7 +52,8 @@ class MyApp extends StatelessWidget {
               AppRoutes.register: (context) => const RegisterScreen(),
               AppRoutes.updateProfile:(context) => const UpdateProfileScreen(),
               AppRoutes.forgetpassword:(context) => const ForgetPasswordScreen(),
-              AppRoutes.homescreen:(context) => const HomeView()
+              AppRoutes.homescreen:(context) => const HomeView(),
+              
             },
           );
         },
