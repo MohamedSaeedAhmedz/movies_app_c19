@@ -3,9 +3,10 @@ import 'package:movies_app/core/resources/app_color.dart';
 import 'package:movies_app/utils/app_text_style.dart';
 
 typedef Validator = String? Function(String?)?;
-
+typedef OnChange= void Function(String)?;
 class CustomTextFormField extends StatelessWidget {
   final Validator validator;
+  final OnChange onChange;
   final bool? obscureText;
   final int? maxLines;
   final String? hintText;
@@ -21,6 +22,7 @@ class CustomTextFormField extends StatelessWidget {
     this.labelText,
     this.prefixIcon,
     this.suffixIcon,
+    this.onChange
   });
 
   @override
@@ -29,6 +31,7 @@ class CustomTextFormField extends StatelessWidget {
       style: AppTextStyle.font16W400.copyWith(color: MColors.white),
       cursorColor: MColors.yellow,
       validator: validator,
+      onChanged: onChange,
       obscureText: obscureText ?? false,
 
       autovalidateMode: AutovalidateMode.onUserInteraction,
