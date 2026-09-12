@@ -25,15 +25,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final PageController _controller = PageController(viewportFraction: 0.376);
   bool isLoading = false;
   int selectedAvatarIndex = 0;
-   String name='';
-   String email='';
-   String password='';
-   String phoneNumber='';
+  String name = '';
+  String email = '';
+  String password = '';
+  String phoneNumber = '';
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return ModalProgressHUD(
+      progressIndicator: CircularProgressIndicator(
+        color: MColors.yellow,
+      ),
       inAsyncCall: isLoading,
       child: Scaffold(
         backgroundColor: MColors.black,
@@ -107,13 +110,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     },
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
-                        return 'Please enter your name';
+                        return l10n.pleaseEnterYourName;
                       }
 
                       if (!RegExp(
                         r'^[a-zA-Z\u0600-\u06FF ]+$',
                       ).hasMatch(value.trim())) {
-                        return 'Name can only contain letters';
+                        return l10n.nameCanOnlyContainLetters;
                       }
                       return null;
                     },
@@ -139,13 +142,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     },
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
-                        return 'Please enter your email';
+                        return l10n.pleaseEnterYourEmail;
                       }
 
                       if (!RegExp(
                         r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
                       ).hasMatch(value.trim())) {
-                        return 'Please enter a valid email';
+                        return l10n.pleaseEnterAValidEmail;
                       }
 
                       return null;
@@ -172,21 +175,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     },
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your password';
+                        return l10n.pleaseEnterYourPassword;
                       }
 
                       if (value.length < 6) {
-                        return 'Password must be at least 6 characters';
+                        return l10n.passwordMustBeAtLeast6Characters;
                       }
 
                       if (!RegExp(r'[0-9]').hasMatch(value)) {
-                        return 'Password must contain at least one number';
+                        return l10n.passwordMustContainAtLeastOneNumber;
                       }
 
                       if (!RegExp(
                         r'[!@#$%^&*(),.?":{}|<>_\-\\/\[\]]',
                       ).hasMatch(value)) {
-                        return 'Password must contain at least one special character';
+                        return l10n
+                            .passwordMustContainAtLeastOneSpecialCharacter;
                       }
 
                       return null;
@@ -223,9 +227,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     hintText: l10n.confirmPassword,
                     validator: (value) {
                       if (value != password) {
-                        return 'Passwords do not match';
+                        return l10n.passwordsDoNotMatch;
                       }
-                      ;
+
+                      return null;
                     },
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -258,12 +263,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     validator: (data) {
                       if (data!.isEmpty) {
-                        return 'Field is requierd';
+                        return l10n.fieldIsRequired;
                       }
                       if (!RegExp(
                         r'^01[0125][0-9]{8}$',
                       ).hasMatch(data.trim())) {
-                        return 'Please enter a valid Egyptian phone number';
+                        return l10n.pleaseEnterAValidEgyptianPhoneNumber;
                       }
                       return null;
                     },
@@ -303,20 +308,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               phoneNumber: phoneNumber,
                               uid: uid,
                             );
-                           if(context.mounted){
-                              Navigator.of(context).pushNamed(AppRoutes.homescreen);
-                           }
-                            
+                            if (context.mounted) {
+                              Navigator.of(
+                                context,
+                              ).pushNamed(AppRoutes.homescreen);
+                            }
                           } catch (e) {
-                            if(context.mounted)showSnackBar(context, e.toString());
-                            
+                            if (context.mounted) {
+                              showSnackBar(context, e.toString());
+                            }
                           } finally {
-                            setState(() {
-                              isLoading = false;
-                            });
+                            if (mounted) {
+                              setState(() {
+                                isLoading = false;
+                              });
+                            }
                           }
                         }
-                        ;
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: MColors.yellow,
