@@ -14,15 +14,10 @@ class FirebaseAuthService {
     return user;
   }
 
-  static Future<UserCredential> loginUser({
+  static Future<void> loginUser({
     required String email,
     required String password,
   }) async {
-    final UserCredential user = await auth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-
-    return user;
+    await auth.signInWithEmailAndPassword(email: email, password: password);
   }
 }

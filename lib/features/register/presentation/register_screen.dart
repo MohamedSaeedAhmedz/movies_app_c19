@@ -31,12 +31,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String phoneNumber = '';
 
   @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return ModalProgressHUD(
-      progressIndicator: CircularProgressIndicator(
-        color: MColors.yellow,
-      ),
+      progressIndicator: CircularProgressIndicator(color: MColors.yellow),
       inAsyncCall: isLoading,
       child: Scaffold(
         backgroundColor: MColors.black,
