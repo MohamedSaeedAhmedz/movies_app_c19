@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/firebase/firebase_auth.dart';
 import 'package:movies_app/core/localization/app_localizations.dart';
@@ -46,11 +49,15 @@ class _LoginButtonState extends State<LoginButton> {
                 email: widget.email,
                 password: widget.password,
               );
-
+              
+              
               if (context.mounted) {
-                Navigator.of(context).pushNamed(AppRoutes.homescreen);
+                Navigator.of(
+                  context,
+                ).pushReplacementNamed(AppRoutes.homescreen);
               }
             } catch (e) {
+              log(e.toString());
               if (context.mounted) showSnackBar(context, e.toString());
             } finally {
               setState(() {

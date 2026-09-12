@@ -75,7 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: Image.asset(MImages.avatarList[index]),
                         ),
                         builder: (context, child) {
-                          double page = 0;
+                          double page = selectedAvatarIndex.toDouble();
 
                           if (_controller.hasClients &&
                               _controller.position.haveDimensions) {
@@ -315,7 +315,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             if (context.mounted) {
                               Navigator.of(
                                 context,
-                              ).pushNamed(AppRoutes.homescreen);
+                              ).pushReplacementNamed(AppRoutes.homescreen);
                             }
                           } catch (e) {
                             if (context.mounted) {
