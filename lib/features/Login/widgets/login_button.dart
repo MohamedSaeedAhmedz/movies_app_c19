@@ -21,9 +21,7 @@ class LoginButton extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed(
-            AppRoutes.updateProfile,
-          );
+          Navigator.of(context).pushNamed(AppRoutes.homescreen);
         },
         child: Text(
           loc.login,

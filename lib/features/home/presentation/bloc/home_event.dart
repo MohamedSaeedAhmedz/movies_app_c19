@@ -5,3 +5,5 @@ class ChangeNavIndexEvent extends HomeEvent {
 
   ChangeNavIndexEvent(this.index);
 }
+
+class GetMoviesEvent extends HomeEvent {}
