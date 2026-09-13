@@ -4,13 +4,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/resources/app_color.dart';
 
 import '../../data/data_sources/home_remote_data_source.dart';
+import '../../data/data_sources/search_remote_data_source.dart';
 import '../../data/models/movie_model.dart';
 import '../../data/repositories/home_repository_impl.dart';
+import '../../data/repositories/search_repository_impl.dart';
 import '../../domain/use_cases/get_movies_use_case.dart';
+import '../../domain/use_cases/search_movies_use_case.dart';
 
 import '../bloc/home_bloc.dart';
 import '../bloc/home_event.dart';
 import '../bloc/home_state.dart';
+import '../bloc/search_bloc.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'tabs/home_tab.dart';
 import 'tabs/search_tab.dart';
@@ -30,14 +34,27 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => HomeBloc(
-        getMoviesUseCase: GetMoviesUseCase(
-          repository: HomeRepositoryImpl(
-            remoteDataSource: HomeRemoteDataSource(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => HomeBloc(
+            getMoviesUseCase: GetMoviesUseCase(
+              repository: HomeRepositoryImpl(
+                remoteDataSource: HomeRemoteDataSource(),
+              ),
+            ),
+          )..add(GetMoviesEvent()),
+        ),
+        BlocProvider(
+          create: (_) => SearchBloc(
+            searchMoviesUseCase: SearchMoviesUseCase(
+              repository: SearchRepositoryImpl(
+                remoteDataSource: SearchRemoteDataSource(),
+              ),
+            ),
           ),
         ),
-      )..add(GetMoviesEvent()),
+      ],
       child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           if (state is HomeMoviesSuccess &&
@@ -50,12 +67,9 @@ class _HomeViewState extends State<HomeView> {
 
           return Scaffold(
             backgroundColor: MColors.black,
-
             extendBody: true,
-
             body: Stack(
               children: [
-                // Full Screen Background
                 if (currentIndex == 0 && selectedMovie != null)
                   Positioned.fill(
                     child: Image.network(
@@ -67,14 +81,10 @@ class _HomeViewState extends State<HomeView> {
                       },
                     ),
                   ),
-
-                // Dark Overlay
                 if (currentIndex == 0 && selectedMovie != null)
                   Positioned.fill(
                     child: Container(color: MColors.black.withOpacity(0.65)),
                   ),
-
-                // Tabs
                 IndexedStack(
                   index: currentIndex,
                   children: [
@@ -92,8 +102,6 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ],
             ),
-
-            // Navigation Bar
             bottomNavigationBar: BottomNavBar(
               currentIndex: currentIndex,
               onTap: (index) {
