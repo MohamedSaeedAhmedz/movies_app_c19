@@ -25,4 +25,5 @@ class MIcons {
   static const String saved = "assets/icon/saved.png";
   static const String userSvg = "assets/svg/User-4.svg";
   static const String phoneSvg = "assets/svg/phone.svg";
+  static const String emailSvg = "assets/svg/email.svg";
 }

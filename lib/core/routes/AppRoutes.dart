@@ -5,6 +5,7 @@ class AppRoutes {
   static const String updateProfile = 'UpdateProfile';
   static const String register = 'Register';
   static  const String forgetpassword = 'ForgetPassword';
+  static const String homescreen = 'HomeScreen';
 
 
 }
