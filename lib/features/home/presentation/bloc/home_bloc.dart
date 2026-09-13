@@ -8,9 +8,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final GetMoviesUseCase getMoviesUseCase;
 
   HomeBloc({required this.getMoviesUseCase}) : super(HomeInitial()) {
-    on<ChangeNavIndexEvent>((event, emit) {
-      emit(HomeNavChanged(event.index));
-    });
+    on<ChangeNavIndexEvent>((event, emit) {});
 
     on<GetMoviesEvent>((event, emit) async {
       emit(HomeMoviesLoading(currentIndex: state.currentIndex));

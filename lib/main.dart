@@ -12,6 +12,7 @@ import 'core/localization/app_localizations.dart';
 import 'core/routes/AppRoutes.dart';
 import 'features/Login/presentation/Login_Screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'features/home/presentation/views/tabs/search_tab.dart';
 import 'firebase_options.dart';
 
 void main() async {
