@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/features/profile_tab/profile_screen.dart';
 import 'package:movies_app/features/update_profile/presentation/update_profile_screen.dart';
 
 class ProfileTab extends StatelessWidget {
@@ -6,6 +7,6 @@ class ProfileTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UpdateProfileScreen();
+    return ProfileScreen();
   }
 }
