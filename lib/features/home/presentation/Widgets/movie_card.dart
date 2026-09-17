@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/resources/app_color.dart';
+import 'package:movies_app/features/movie_details/presentation/views/movie_details_screen.dart';
 
 import '../../data/models/movie_model.dart';
 
@@ -11,7 +12,14 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => MovieDetailsScreen(movieId: movie.id),
+          ),
+        );
+      },
       borderRadius: BorderRadius.circular(16),
       child: Container(
         width: 120,
