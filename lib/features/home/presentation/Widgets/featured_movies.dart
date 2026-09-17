@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/resources/app_color.dart';
+import 'package:movies_app/features/movie_details/presentation/views/movie_details_screen.dart';
 
 import '../../data/models/movie_model.dart';
 
@@ -75,7 +76,14 @@ class _FeaturedMoviesState extends State<FeaturedMovies> {
                 child: Transform.scale(
                   scale: scale,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                       context,
+                       MaterialPageRoute(
+                        builder: (_) => MovieDetailsScreen(movieId: movies[index].id),
+                      ),
+                    );
+                    },
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
                       width: 234,
