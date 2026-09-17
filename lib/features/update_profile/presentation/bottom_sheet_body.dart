@@ -4,7 +4,8 @@ import 'package:movies_app/core/resources/app_image.dart';
 import 'package:movies_app/features/update_profile/presentation/avatar_item.dart';
 
 class BottomSheetBody extends StatelessWidget {
-  const BottomSheetBody({super.key});
+  final int selectedAvatarIndex;
+  const BottomSheetBody({super.key, required this.selectedAvatarIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,13 @@ class BottomSheetBody extends StatelessWidget {
           ),
           itemCount: MImages.avatarList.length,
           itemBuilder: (context, index) {
-            return AvatarItem(avatar: MImages.avatarList[index]);
+            return AvatarItem(
+              avatar: MImages.avatarList[index],
+              onTab: () {
+                Navigator.pop(context, index);
+              },
+              isSelected: selectedAvatarIndex == index,
+            );
           },
         ),
       ),

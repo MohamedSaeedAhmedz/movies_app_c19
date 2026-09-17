@@ -20,4 +20,19 @@ class FirebaseAuthService {
   }) async {
     await auth.signInWithEmailAndPassword(email: email, password: password);
   }
+
+  static Future<void> reAuthentication({required String password}) async {
+    final user = auth.currentUser!;
+
+    final credential = EmailAuthProvider.credential(
+      email: user.email!,
+      password: password,
+    );
+
+    await user.reauthenticateWithCredential(credential);
+  }
+
+  static Future<void> logoutUser() async {
+    await auth.signOut();
+  }
 }
