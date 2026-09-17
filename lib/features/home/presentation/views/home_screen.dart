@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:movies_app/core/resources/app_color.dart';
+import 'package:movies_app/features/movie_details/presentation/views/movie_details_screen.dart';
 
 import '../../data/data_sources/home_remote_data_source.dart';
 import '../../data/data_sources/search_remote_data_source.dart';
@@ -68,6 +69,18 @@ class _HomeViewState extends State<HomeView> {
           return Scaffold(
             backgroundColor: MColors.black,
             extendBody: true,
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: Colors.red,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const MovieDetailsScreen(movieId: 10),
+                  ),
+                );
+              },
+              child: const Icon(Icons.movie),
+            ),
             body: Stack(
               children: [
                 if (currentIndex == 0 && selectedMovie != null)
