@@ -84,5 +84,17 @@
   "war": "War",
   "western": "Western",
   "noSimilar": "No similar movies",
-  "next": "Next"
+  "next": "Next",
+  "pleaseEnterYourName": "Please enter your name",
+  "nameCanOnlyContainLetters": "Name can only contain letters",
+  "pleaseEnterYourEmail": "Please enter your email",
+  "pleaseEnterAValidEmail": "Please enter a valid email",
+  "pleaseEnterYourPassword": "Please enter your password",
+  "passwordMustBeAtLeast6Characters": "Password must be at least 6 characters",
+  "passwordMustContainAtLeastOneNumber": "Password must contain at least one number",
+  "passwordMustContainAtLeastOneSpecialCharacter": "Password must contain at least one special character",
+  "passwordsDoNotMatch": "Passwords do not match",
+  "fieldIsRequired": "Field is required",
+  "pleaseEnterAValidEgyptianPhoneNumber": "Please enter a valid Egyptian phone number",
+  "thereIsAnError":"There is an error"
 }
