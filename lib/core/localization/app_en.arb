@@ -95,5 +95,6 @@
   "passwordMustContainAtLeastOneSpecialCharacter": "Password must contain at least one special character",
   "passwordsDoNotMatch": "Passwords do not match",
   "fieldIsRequired": "Field is required",
-  "pleaseEnterAValidEgyptianPhoneNumber": "Please enter a valid Egyptian phone number"
+  "pleaseEnterAValidEgyptianPhoneNumber": "Please enter a valid Egyptian phone number",
+  "thereIsAnError":"There is an error"
 }

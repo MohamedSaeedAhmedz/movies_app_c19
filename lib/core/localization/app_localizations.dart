@@ -667,6 +667,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please enter a valid Egyptian phone number'**
   String get pleaseEnterAValidEgyptianPhoneNumber;
+
+  /// No description provided for @thereIsAnError.
+  ///
+  /// In en, this message translates to:
+  /// **'There is an error'**
+  String get thereIsAnError;
 }
 
 class _AppLocalizationsDelegate

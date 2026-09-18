@@ -95,5 +95,6 @@
   "passwordMustContainAtLeastOneSpecialCharacter": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
   "passwordsDoNotMatch": "كلمتا المرور غير متطابقتين",
   "fieldIsRequired": "هذا الحقل مطلوب",
-  "pleaseEnterAValidEgyptianPhoneNumber": "من فضلك أدخل رقم هاتف مصري صحيح"
+  "pleaseEnterAValidEgyptianPhoneNumber": "من فضلك أدخل رقم هاتف مصري صحيح",
+  "thereIsAnError":"هناك خطأ"
 }

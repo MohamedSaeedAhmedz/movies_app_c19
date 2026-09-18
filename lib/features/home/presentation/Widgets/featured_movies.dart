@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/resources/app_color.dart';
+import 'package:movies_app/features/movie_details/presentation/views/movie_details_screen.dart';
 
 import '../../data/models/movie_model.dart';
 
@@ -74,70 +75,78 @@ class _FeaturedMoviesState extends State<FeaturedMovies> {
               return Center(
                 child: Transform.scale(
                   scale: scale,
-                  child: Container(
-                    width: 234,
-                    height: 351,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: MColors.dgrey,
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Stack(
-                        children: [
-                          // Movie Poster
-                          Image.network(
-                            movies[index].largeCoverImage,
-                            width: double.infinity,
-                            height: double.infinity,
-                            fit: BoxFit.cover,
-                            filterQuality: FilterQuality.high,
-                            errorBuilder: (context, error, stackTrace) {
-                              return const Center(
-                                child: Icon(
-                                  Icons.movie,
-                                  color: MColors.white,
-                                  size: 40,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                       context,
+                       MaterialPageRoute(
+                        builder: (_) => MovieDetailsScreen(movieId: movies[index].id),
+                      ),
+                    );
+                    },
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      width: 234,
+                      height: 351,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: MColors.dgrey,
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Stack(
+                          children: [
+                            Image.network(
+                              movies[index].largeCoverImage,
+                              width: double.infinity,
+                              height: double.infinity,
+                              fit: BoxFit.cover,
+                              filterQuality: FilterQuality.high,
+                              errorBuilder: (context, error, stackTrace) {
+                                return const Center(
+                                  child: Icon(
+                                    Icons.movie,
+                                    color: MColors.white,
+                                    size: 40,
+                                  ),
+                                );
+                              },
+                            ),
+                            Positioned(
+                              top: 10,
+                              left: 10,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 5,
                                 ),
-                              );
-                            },
-                          ),
-
-                          // Rating
-                          Positioned(
-                            top: 10,
-                            left: 10,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 5,
-                              ),
-                              decoration: BoxDecoration(
-                                color: MColors.black.withOpacity(0.75),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                    size: 16,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    movies[index].rating.toStringAsFixed(1),
-                                    style: const TextStyle(
-                                      color: MColors.white,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold,
+                                decoration: BoxDecoration(
+                                  color: MColors.black.withOpacity(0.75),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      movies[index].rating.toStringAsFixed(1),
+                                      style: const TextStyle(
+                                        color: MColors.white,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(width: 4),
+                                    const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                      size: 16,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

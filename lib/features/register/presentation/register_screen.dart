@@ -31,12 +31,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String phoneNumber = '';
 
   @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return ModalProgressHUD(
-      progressIndicator: CircularProgressIndicator(
-        color: MColors.yellow,
-      ),
+      progressIndicator: CircularProgressIndicator(color: MColors.yellow),
       inAsyncCall: isLoading,
       child: Scaffold(
         backgroundColor: MColors.black,
@@ -71,7 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: Image.asset(MImages.avatarList[index]),
                         ),
                         builder: (context, child) {
-                          double page = 0;
+                          double page = selectedAvatarIndex.toDouble();
 
                           if (_controller.hasClients &&
                               _controller.position.haveDimensions) {
@@ -311,7 +315,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             if (context.mounted) {
                               Navigator.of(
                                 context,
-                              ).pushNamed(AppRoutes.homescreen);
+                              ).pushReplacementNamed(AppRoutes.homescreen);
                             }
                           } catch (e) {
                             if (context.mounted) {

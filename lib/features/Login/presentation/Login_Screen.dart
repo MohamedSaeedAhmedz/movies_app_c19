@@ -14,6 +14,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var loc = AppLocalizations.of(context)!;
+    GlobalKey<FormState> formKey = GlobalKey();
 
     return Scaffold(
       backgroundColor: MColors.black,
@@ -35,11 +36,7 @@ class LoginScreen extends StatelessWidget {
 
                 const SizedBox(height: 69),
 
-                const LoginForm(),
-
-                const SizedBox(height: 16),
-
-                const LoginButton(),
+                LoginForm(formKey: formKey),
 
                 const SizedBox(height: 20),
 

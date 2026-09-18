@@ -14,19 +14,33 @@ class FirestoreService {
     required String selectedAvatarPath,
     required String name,
     required String phoneNumber,
-    required String uid
-  }) async{
-    await userRef.doc(uid).set(
-      UserModel(
-        selectedAvatarPath: selectedAvatarPath,
-        name: name,
-        phoneNumber: phoneNumber,
-      ),
-    );
+    required String uid,
+  }) async {
+    await userRef
+        .doc(uid)
+        .set(
+          UserModel(
+            selectedAvatarPath: selectedAvatarPath,
+            name: name,
+            phoneNumber: phoneNumber,
+          ),
+        );
   }
 
-  static Future<UserModel> getUser({required String uid}) async{
-    final snapshot=await userRef.doc(uid).get();
-   return snapshot.data()! ;
+  static Stream<UserModel> getUser({required String uid}) {
+  return userRef.doc(uid).snapshots().map(
+    (snapshot) => snapshot.data()!,
+  );
+}
+
+  static Future<void> updateUser({
+    required String uid,
+    required UserModel userModel,
+  }) async {
+    await userRef.doc(uid).update(userModel.toJson());
   }
+
+  static Future<void> deleteUser({required String uid}) async {
+  await userRef.doc(uid).delete();
+}
 }

@@ -301,4 +301,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get pleaseEnterAValidEgyptianPhoneNumber =>
       'Please enter a valid Egyptian phone number';
+
+  @override
+  String get thereIsAnError => 'There is an error';
 }
